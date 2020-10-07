@@ -9,6 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
@@ -24,10 +25,13 @@ public class BaseTest {
 
     @BeforeMethod
     public void setup(Method method) {
-        ChromeOptions options = new ChromeOptions();
+        /*ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         System.setProperty("webdriver.chrome.driver", "src/test/java/com/saucedemo/drivers/chromedriver");
-        driver = new ChromeDriver();
+        driver = new ChromeDriver();*/
+
+        driver = new SafariDriver();
+        driver.manage().window().maximize();
     }
 
     @AfterMethod
