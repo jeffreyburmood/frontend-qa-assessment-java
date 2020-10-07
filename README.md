@@ -21,48 +21,12 @@
 1. Create a directory on your machine.
 2. Clone this repository into said directory.
     ```
-    $ git clone https://github.com/saucelabs-training/demo-java.git
+    $ git clone git@github.com:cpothier/frontend-qa-assessment-java.git
     ```
 2. Import the project into your IntelliJ (or IDE of your choice) as a **Maven Project**.
 3. Click through the prompts, and confirm when it asks to **Import from Sources**
 4. Choose the **selenium3-testng-framework** directory as the **root** directory of the project.
 
-#### Set Your Sauce Labs Credentials
-1. Here are the credentials you need for sauce labs. (Contact Vinh)
-2. Open a Terminal window (command prompt for Windows) and set your Sauce Labs Environment variables:   
-   ###### Mac OSX:
-   ```
-   $ export SAUCE_USERNAME="username"
-   $ export SAUCE_ACCESS_KEY="accessKey"
-   ```
-   ###### Windows:
-   ```
-   > set SAUCE_USERNAME="username"
-   > set SAUCE_ACCESS_KEY="accessKey"
-   ```
-   > To set an environment variables permanently in Windows, you must append it to the `PATH` variable.
-   
-   > Go to **Control Panel > System > Windows version > Advanced System Settings > Environment Variables > System Variables > Edit > New**
-   
-   > Then set the "Name" and "Value" for each variable
-   
-9. Test the environment variables
-    ###### Mac OSX:
-    ```
-    $ echo $SAUCE_USERNAME
-    $ echo $SAUCE_ACCESS_KEY
-    ```
-    > ***WARNING FOR UNIX USERS!***:
-    > If you have problems setting your environment variables, run the following commands in your terminal:
-    ```
-    $ launchctl setenv SAUCE_USERNAME $SAUCE_USERNAME
-    $ launchctl setenv SAUCE_ACCESS_KEY $SAUCE_ACCESS_KEY
-    ```
-    ###### Windows:
-    ```
-    > echo %SAUCE_USERNAME%
-    > echo %SAUCE_ACCESS_KEY%
-    ```
 
 <br />
 
@@ -78,15 +42,6 @@
     ```
 3. Finally, run the following test to see if you've properly configured the test environment:
     ```
-    $ mvn test -Dtest=Module2TestNGTest -pl on-boarding-modules/testng
+    $  mvn test
 
     ```
-
-    > If you wish to run a specific test/sub-module in this emusim_testng use the following command:
-    >   ```
-    >   # for running a specific test:
-    >   mvn test -Dtest=testname
-    > 
-    >   # for running all tests
-    >   mvn test
-    >   ```
