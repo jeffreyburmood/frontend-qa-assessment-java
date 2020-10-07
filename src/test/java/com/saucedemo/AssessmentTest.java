@@ -1,12 +1,17 @@
 package com.saucedemo;
 import com.saucedemo.BaseTest;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.concurrent.TimeUnit;
 
 
 public class AssessmentTest extends BaseTest {
@@ -52,13 +57,22 @@ public class AssessmentTest extends BaseTest {
         driver.findElement(By.xpath("//*[@id='treemenu']/li/ul/li[1]/a")).click(); //expand input forms
         driver.findElement(By.xpath("//*[@id='treemenu']/li/ul/li[1]/ul/li[2]/a")).click(); //load checkbox demo page
 
-        //stdWait.until(ExpectedConditions.titleContains("Checkbox demo"));
+        stdWait.until(ExpectedConditions.titleContains("Checkbox demo"));
         stdWait.until(ExpectedConditions.elementToBeClickable(By.id("check1")));
         WebElement checkButton = driver.findElement(By.id("check1"));
         WebElement isChecked = driver.findElement(By.id("isChkd"));
-        checkButton.click();
+        checkButton.click();  // Click on the Check All button
+
+        // Looks like the individual options are not properly selected or deselected when the button is pressed
+
         boolean checked = driver.findElement(By.xpath("//*[@id='easycont']/div/div[2]/div[2]/div[2]/div[4]/label/input")).isSelected();
+        Assert.assertEquals(checked, true);  //option should be selected
         System.out.println("checked value = " + checked);
+        /*
+        driver.findElement(By.xpath("//*[@id='easycont']/div/div[2]/div[2]/div[2]/div[4]/label/input")).click();
+        checked = driver.findElement(By.xpath("//*[@id='easycont']/div/div[2]/div[2]/div[2]/div[4]/label/input")).isSelected();
+        System.out.println("checked value = " + checked);
+        */
     }
 
     @Test(enabled=false)
@@ -75,9 +89,22 @@ public class AssessmentTest extends BaseTest {
         3. Under the multi select select Delaware & Vermont & assert the field values
         4. Under US Outlying Territories assert that Guam & United States Minor Outlying Islands are disabled
 */
+
     @Test(enabled=false)
     public void selectJapanTest(){
+        WebDriver driver = new SafariDriver();
+        driver.manage().window().maximize();
 
+        driver.get("https://www.seleniumeasy.com/test/jquery-dropdown-search-demo.html");
+
+        WebDriverWait stdWait = new WebDriverWait(driver, 10, 5);
+        stdWait.until(ExpectedConditions.titleContains("JQuery Select"));
+
+        // create an instance of JS executor
+        JavascriptExecutor js = (JavascriptExecutor) driver;  //need this???
+
+        Object countrySelect = js.executeScript("return ${#country};");
+        System.out.println(countrySelect.toString());
     }
     @Test(enabled=false)
     public void multiSelectDelewareAndVermont() {
