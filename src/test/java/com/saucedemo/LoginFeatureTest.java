@@ -9,7 +9,7 @@ public class LoginFeatureTest extends BaseTest {
 
     @Test
     public void shouldBeAbleToLogin() {
-        LoginPage loginPage = new LoginPage(getDriver());
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.visit();
         Assert.assertTrue(loginPage.isLoaded());
 
@@ -18,7 +18,7 @@ public class LoginFeatureTest extends BaseTest {
     }
     @Test
     public void doesntLoginWithBadUser() {
-        LoginPage loginPage = new LoginPage(getDriver());
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.visit();
         Assert.assertTrue(loginPage.isLoaded());
 
@@ -27,7 +27,7 @@ public class LoginFeatureTest extends BaseTest {
     }
     @Test
     public void cantLoginWithLockedOutUser() {
-        LoginPage loginPage = new LoginPage(getDriver());
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.visit();
         Assert.assertTrue(loginPage.isLoaded());
 
@@ -36,7 +36,7 @@ public class LoginFeatureTest extends BaseTest {
     }
     @Test
     public void shouldBeAbleToLogin2() {
-        LoginPage loginPage = new LoginPage(getDriver());
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.visit();
         Assert.assertTrue(loginPage.isLoaded());
 
@@ -45,7 +45,7 @@ public class LoginFeatureTest extends BaseTest {
     }
     @Test
     public void doesntLoginWithBadUser2() {
-        LoginPage loginPage = new LoginPage(getDriver());
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.visit();
         Assert.assertTrue(loginPage.isLoaded());
 
@@ -54,7 +54,7 @@ public class LoginFeatureTest extends BaseTest {
     }
     @Test
     public void cantLoginWithLockedOutUser2() {
-        LoginPage loginPage = new LoginPage(getDriver());
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.visit();
         Assert.assertTrue(loginPage.isLoaded());
 
@@ -63,7 +63,7 @@ public class LoginFeatureTest extends BaseTest {
     }
     @Test
     public void shouldBeAbleToLogin3() {
-        LoginPage loginPage = new LoginPage(getDriver());
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.visit();
         Assert.assertTrue(loginPage.isLoaded());
 
@@ -72,7 +72,7 @@ public class LoginFeatureTest extends BaseTest {
     }
     @Test
     public void doesntLoginWithBadUser3() {
-        LoginPage loginPage = new LoginPage(getDriver());
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.visit();
         Assert.assertTrue(loginPage.isLoaded());
 
@@ -81,7 +81,7 @@ public class LoginFeatureTest extends BaseTest {
     }
     @Test
     public void cantLoginWithLockedOutUser3() {
-        LoginPage loginPage = new LoginPage(getDriver());
+        LoginPage loginPage = new LoginPage(driver);
         loginPage.visit();
         Assert.assertTrue(loginPage.isLoaded());
 

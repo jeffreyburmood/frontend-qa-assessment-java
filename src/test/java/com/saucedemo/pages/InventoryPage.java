@@ -14,7 +14,7 @@ public class InventoryPage extends BasePage {
 
     public boolean isLoaded() {
         try {
-            return getDriver().findElement(By.className("app_logo")).isDisplayed();
+            return driver.findElement(By.className("app_logo")).isDisplayed();
         }
         catch (NoSuchElementException e) {
             return false;

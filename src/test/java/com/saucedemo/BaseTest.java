@@ -1,10 +1,11 @@
 package com.saucedemo;
-
-import com.saucelabs.saucebindings.SauceOptions;
-import com.saucelabs.saucebindings.SauceSession;
+//
+//import com.saucelabs.saucebindings.SauceOptions;
+//import com.saucelabs.saucebindings.SauceSession;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.MutableCapabilities;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -19,31 +20,20 @@ import java.net.URL;
 
 public class BaseTest {
     //We need to create a ThreadLocal object to be accessed by a specific thread
-    protected static ThreadLocal<SauceSession> session = new ThreadLocal<>();
-    protected static ThreadLocal<SauceOptions> options = new ThreadLocal<>();
-
-    public SauceSession getSession() {
-        return session.get();
-    }
-
-    public WebDriver getDriver() {
-        return getSession().getDriver();
-    }
+    public static WebDriver driver;
 
     @BeforeMethod
     public void setup(Method method) {
-        session.set(new SauceSession());
-        getSession().start();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--start-maximized");
+        System.setProperty("webdriver.chrome.driver", "src/test/java/com/saucedemo/drivers/chromedriver");
+        driver = new ChromeDriver();
     }
 
     @AfterMethod
-    public void teardown(ITestResult result) {
-        getSession().stop(result.isSuccess());
-    }
-
-    @AfterClass
-    void terminate () {
-        session.remove();
+    public void teardown() {
+        driver.quit();
+        driver = null;
     }
 }
 

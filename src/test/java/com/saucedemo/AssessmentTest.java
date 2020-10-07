@@ -2,6 +2,7 @@ package com.saucedemo;
 import com.saucedemo.BaseTest;
 import org.testng.annotations.Test;
 
+
 public class AssessmentTest extends BaseTest {
 
     /*
@@ -10,7 +11,7 @@ public class AssessmentTest extends BaseTest {
         2. Click 'Show Message'
         3. Assert that "Your Message" matches "QA assessment trial #1"
 */
-    @Test
+    @Test(enabled=false)
     public void shoudHaveCorrectMessage() {
 
     }
@@ -25,12 +26,12 @@ public class AssessmentTest extends BaseTest {
         and it is up to you to figure out what it is and write a test that fails at least 1/2 conditions
         4. Hint: read the bulletpoints to help you find the bug(s)
 */
-    @Test
+    @Test(enabled=false)
     public void checkboxTest() {
 
     }
 
-    @Test
+    @Test(enabled=false)
     public void multiCheckBoxTest() {
 
     }
@@ -44,15 +45,15 @@ public class AssessmentTest extends BaseTest {
         3. Under the multi select select Delaware & Vermont & assert the field values
         4. Under US Outlying Territories assert that Guam & United States Minor Outlying Islands are disabled
 */
-    @Test
+    @Test(enabled=false)
     public void selectJapanTest(){
 
     }
-    @Test
+    @Test(enabled=false)
     public void multiSelectDelewareAndVermont() {
 
     }
-    @Test
+    @Test(enabled=false)
     public void validateDisabledValuesSelect() {
 
     }
